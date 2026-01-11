@@ -2,13 +2,13 @@ import pygame
 from Renderer import Renderer
 
 def renderer_test():
-    # --- pygame init (ONCE) ---
+
     pygame.init()
 
     # --- test parameters ---
     CELL_SIZE = 30
-    X_CASES = 20
-    Y_CASES = 20
+    X_CASES = 5
+    Y_CASES = 5
 
     BOARD_COLOR = (30, 30, 30)
     SNAKE_COLOR = (0, 200, 0)
