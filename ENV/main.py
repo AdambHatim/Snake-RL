@@ -15,8 +15,8 @@ def main():
 
     # --- paramètres ---
     CELL_SIZE = 30
-    X_CASES = 20
-    Y_CASES = 20
+    X_CASES = 3
+    Y_CASES = 3
     FPS = 8
 
     BOARD_COLOR = (30, 30, 30)
@@ -26,7 +26,7 @@ def main():
     # --- initialisation des objets ---
     board = Board(X_CASES, Y_CASES)
 
-    snake_body = deque([(5, 10), (6, 10), (7, 10)])
+    snake_body = deque([(0,0)])
     snake = Snake(direction="x+", Snake_dequeue=snake_body)
 
     food = Food(position=(10, 10))
@@ -73,9 +73,8 @@ def main():
             running = False
 
         # --- rendu ---
-        renderer.screen.fill(BOARD_COLOR)
         renderer.show(
-            snake_queue=snake.get_Snake_dequeue(),
+            snake_dequeue=snake.get_Snake_dequeue(),
             Food_position=food.get_position()
         )
         pygame.display.flip()

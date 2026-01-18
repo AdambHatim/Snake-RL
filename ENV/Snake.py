@@ -1,3 +1,4 @@
+from utils.utils import move_head
 class Snake:
     def __init__(self, direction, Snake_dequeue):
 
@@ -32,18 +33,13 @@ class Snake:
         if not is_increasing:
             del self.Snake_dequeue[0]
         
-
-        if self.direction == "x+":
-            self.Snake_dequeue.append((x_head + 1, y_head))
+        x_dir, y_dir = move_head(self.direction)
+ 
+        self.Snake_dequeue.append((x_head + x_dir, y_head + y_dir))
    
-        if self.direction == "y+":
-            self.Snake_dequeue.append((x_head, y_head + 1))
-  
-        if self.direction == "x-":
-            self.Snake_dequeue.append((x_head - 1, y_head))
-            
-        if self.direction == "y-":
-            self.Snake_dequeue.append((x_head, y_head - 1))
+
+
+        
 
 
 

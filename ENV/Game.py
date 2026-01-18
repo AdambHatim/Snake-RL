@@ -17,6 +17,7 @@ class Game:
         Un tick de jeu.
         action : direction demandée ("x+", "y+", "x-", "y-") ou None
         """
+        
 
         if self.game_over:
             return
@@ -29,7 +30,8 @@ class Game:
                 pass  # action invalide → ignorée
 
         # vérifier si la nourriture va être mangée
-        eat_food = self.rules.is_eat_food()
+        eat_food = self.rules.is_eat_food(action)
+   
 
         # avancer le serpent
         self.snake.update(is_increasing=eat_food)
@@ -48,6 +50,7 @@ class Game:
             self.score += 1
             occupied = self.snake.get_Snake_dequeue()
             free = self.board.free_cases(occupied)
+            if free == []: return self.is_game_over()
             self.food.spawn(free)
 
     def is_game_over(self):
